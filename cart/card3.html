@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        
+        body{
+            background-color: #f0f0f5;
+        }
+
+        /* main cart box */
+      #cart {
+        width: 60%;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        margin: 0 auto;
+        font-size: 12px;
+        font-family: Sans,serif;
+        background-color: white;
+      }
+
+       /* common class for cart items*/
+      .flex {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid skyblue;
+        padding: 10px;
+      }
+
+      .flex1 {
+        display: flex;
+      }
+      h2{
+          text-align: center;
+          font-family:Sans-serif;
+      }
+      #practo-logo{
+          background-color:white;
+          
+      }
+
+    </style>
+  </head>
+  <body>
+      div
+      <div id="practo-logo"> <img src="https://www.practo.com/nav/9.5.10/consumer/images/practo.svg" alt="practo logo" width="10%"></div>
+      <h2>My cart: items<h2>
+
+
+    <div id="cart"></div>
+  </body>
+</html>
+<script>
+  var data = [
+    {
+      name: "Bevon Capsule",
+      image:
+        "https://www.practostatic.com/practopedia-images/v3/res-150/bevon-capsule-15-s_55e001c1-5eb0-4b63-97ed-93fa24d681cf.JPG",
+      price: "₹114.71",
+      description: "ZUVENTUS HEALTH CARE LTD",
+      qty: 1,
+    },
+    {
+      name: "Scalpe + SHAMPOO 75ML",
+      image:
+        "https://www.practostatic.com/practopedia-images/v3/res-150/scalpe-shampoo-75ml_3e057d2d-6a9e-4ac5-a1ca-f646fa183dae.JPG",
+      price: "₹234",
+      description: "GLENMARK(GRACEWELL)",
+      qty: 2,
+    },
+    {
+      name: "Acnemoist Cream 60 g",
+      image:
+        "https://www.practostatic.com/practopedia-images/v3/res-150/acnemoist-cream-60gm_4b227521-44ca-44ec-a614-9e0e76d041c1.JPG",
+      price: "₹272",
+      description: "CURATIO HEALTH CARE PVT LTD",
+      qty: 1,
+    },
+    {
+      name: "Keraboost Tablet",
+      image:
+        "https://www.practostatic.com/practopedia-images/v3/res-150/keraboost-tablet-10-s_98863b65-3a68-415b-a88c-9f26a6556e87.JPG",
+      price: "₹139.2",
+      description: "GLOWDERMAL LAB PVT LTD",
+      qty: 1,
+    },
+  ];
+
+  display_product(data);
+ 
+  function display_product(data) {
+    data.map(function (elem) {
+      // creating elements and setting attributes
+
+      // main container
+      var mainDiv = document.createElement("div");
+      mainDiv.setAttribute("class", "flex");
+
+      // for product image
+      var smallDiv = document.createElement("div");
+      smallDiv.setAttribute("class", "flex1");
+      var img = document.createElement("img");
+      img.setAttribute("src", elem.image);
+
+      // for product description and name
+      var details = document.createElement("div");
+      var h2 = document.createElement("h2");
+      var p = document.createElement("p");
+
+      // for product price and quantity
+      var pricing = document.createElement("div");
+      var h3 = document.createElement("h3");
+      var p1 = document.createElement("p");
+
+      // giving content to the elements from the arr
+      h2.textContent = elem.name;
+      h3.textContent = elem.price;
+      p.textContent = elem.description;
+      p1.textContent = elem.qty;
+    
+
+      // appending the child elements with the parent elements
+      details.append(h2, p);
+      smallDiv.append(img, details);
+
+      pricing.append(h3, p1);
+      mainDiv.append(smallDiv, pricing);
+      // mainDiv.style.height = "70%"
+      document.querySelector("#cart").append(mainDiv);
+    });
+  }
+</script>

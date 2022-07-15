@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/6fa3bd69d6.js" crossorigin="anonymous"></script>
+  <title>Document</title>
+  <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap');
+
+    /* main cart box */
+    #cart {
+      width: 60%;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      margin: 0 auto;
+      font-size: 12px;
+      font-family: Sans, serif;
+      background-color: white;
+    }
+
+    /* common class for cart items*/
+    .flex {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid transparent;
+      padding: 10px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+
+    .flex1 {
+      display: flex;
+
+    }
+
+    .grid {
+      display: flex;
+
+    }
+
+    .grid>div {
+      padding: 10px;
+      font-weight: 700;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    /* ----------------------------- */
+    h2 {
+      text-align: left;
+      font-family: Sans-serif;
+    }
+
+    .border {
+      border: 2px solid transparent;
+
+    }
+
+    .qty {
+      background-color: grey;
+      color: white;
+    }
+
+    nav {
+      width: 100%;
+      height: 68px;
+      background-color: white;
+      margin-bottom: 50px;
+    }
+
+    #logo {
+      height: 100%;
+      width: 8%;
+      margin-left: 50px;
+    }
+  </style>
+</head>
+
+<body>
+
+</header>
+  <h1 id="home-page"><button></button></h1>
+
+
+
+  <div id="cart">
+    <h2 class="center">My cart: items<h2>
+
+  </div>
+</body>
+
+</html>
+<script>
+  var count = 1
+  var data = [
+    {
+      name: "High Rise 7/8 Daily Pocket Leggings",
+      image:
+        "jeans2.jpeg",
+      price: "$114.71",
+      description: "BareFoot Dreams",
+      qty: 1,
+    },
+    {
+      name: "High Rise 7/8 Daily Pocket Leggings",
+      image:
+        "jeans3.jpeg",
+      price: "$234",
+      description: "BareFoot Dreams",
+      qty: 2,
+    },
+    {
+      name: "High Rise 7/8 Daily Pocket Leggings",
+      image:
+        "jeans4.jpeg",
+      price: "₹$44",
+      description: "Barefoot Dreams",
+      qty: 1,
+    },
+    {
+      name: "High Rise 7/8 Daily Pocket Leggings",
+      image:
+        "jeans5.jpeg",
+      price: "$99.97",
+      description: "BareFoot Dreams",
+      qty: 1,
+    },
+  ];
+
+  display_product(data);
+
+  function display_product(data) {
+    data.map(function (elem) {
+      // creating elements and setting attributes
+
+      // main container
+      var mainDiv = document.createElement("div");
+      mainDiv.setAttribute("class", "flex");
+
+      // for product image
+      var smallDiv = document.createElement("div");
+      smallDiv.setAttribute("class", "flex1");
+      var img = document.createElement("img");
+      img.setAttribute("src", elem.image);
+
+      // for product description and name
+      var details = document.createElement("div");
+      var h2 = document.createElement("h2");
+      var p = document.createElement("p");
+
+      // for product price and quantity
+      var pricing = document.createElement("div");
+      var h3 = document.createElement("h3");
+      var p1 = document.createElement("p");
+
+      // quantity div
+      var quantityMain = document.createElement("div");
+      quantityMain.setAttribute("class", "grid")
+      var dec = document.createElement("div");
+      dec.setAttribute("class", "border");
+      dec.addEventListener('click', decCount)
+      var quantity = document.createElement("div");
+      quantity.setAttribute("class", "qty");
+      var inc = document.createElement("div");
+      inc.setAttribute("class", "border");
+      inc.addEventListener('click', incCount)
+
+
+      // giving content to the elements from the arr
+      h2.textContent = elem.name;
+      h3.textContent = elem.price;
+      p.textContent = elem.description;
+      p1.textContent = elem.qty;
+      dec.innerHTML = "-";
+      inc.innerHTML = "+";
+      quantity.innerHTML = count
+
+
+      // appending the child elements with the parent elements
+      details.append(h2, p);
+      smallDiv.append(img, details);
+
+      // quantity
+      quantityMain.append(dec, quantity, inc)
+
+
+      pricing.append(h3, quantityMain);
+      mainDiv.append(smallDiv, pricing);
+      // mainDiv.style.height = "70%"
+      document.querySelector("#cart").append(mainDiv);
+    });
+
+
+    // function for decreasing the quantity of a particular item
+    function decCount(event) {
+      event.preventDefault();
+      let target = event.target.parentNode.children[1]
+      let res = target.innerHTML
+      res = +res - 1
+
+      target.innerHTML = res;
+
+    }
+
+
+    // function for increasing the quantity of a particular item
+
+    function incCount(event) {
+      event.preventDefault();
+      let target = event.target.parentNode.children[1]
+      let res = target.innerHTML
+      res = +res + 1
+
+      target.innerHTML = res;
+    }
+
+  }
+</script>

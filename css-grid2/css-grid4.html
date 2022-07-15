@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mainbox {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 200px);
+            border: 2px solid red;
+        }
+
+        #mainbox>div {
+            width: 80%;
+            height: 60%;
+            border: 2px solid teal;
+            margin-left: 200px;
+        }
+
+        #mainbox>div:nth-child(1) {
+            grid-area: 1/1/4/2;
+        }
+
+        #mainbox>div.box {
+            height: 80%;
+            font-family: sans-serif;
+        }
+
+        #mainbox>div.box1 {
+            width: 70%;
+        }
+
+        p {
+            color: red;
+        }
+
+        .content {
+            width: 150%;
+
+        }
+        .content>h1,
+        h5,
+        p {
+            margin-top: 0px;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div id="mainbox">
+        <div class="box">
+            <img height="50%" width="100%"
+                src="https://media.istockphoto.com/photos/bohemian-living-room-interior-3d-render-picture-id1212526330?b=1&k=20&m=1212526330&s=170667a&w=0&h=Th_uMmFm5CcJsTNelGSln5TwOzyACXzd8eyQ0_TIQEw="
+                alt="">
+            <p>Technology</p>
+            <h1>The world's first fitness infulencer was a Victorian strongman</h1>
+        </div>
+        <div class="box1">
+            <div>
+            <img height=100% width="30%"
+                src="https://media.istockphoto.com/photos/woman-using-covid19-lockdown-to-finally-finish-coding-for-a-new-picture-id1280720394?b=1&k=20&m=1280720394&s=170667a&w=0&h=eRUffvpLTljTivBkS6YMa_5RIJjOoijyEcL6KbgCp8A=">
+            </div>
+            <div class="content">
+                <h1>Technology</h1>
+            </div>
+
+
+
+        </div>
+
+        <div class="box1">
+            <img height=100% width="30%"
+                src="https://media.istockphoto.com/photos/male-programmer-working-on-new-project-picture-id1274948583?b=1&k=20&m=1274948583&s=170667a&w=0&h=TYb8QHIT9JT1hHmIh9oB5ClUuxenJ51b8OlSbHcXvqA="
+                alt="">
+            <div class="content"></div>
+        </div>
+        <div class="box1">
+            <img height=100% width="30%"
+                src="https://media.istockphoto.com/photos/computer-programmer-working-on-laptop-picture-id1265176772?b=1&k=20&m=1265176772&s=170667a&w=0&h=IHFnvxa3kvVTuZcEfPpCSGIFA_gNT7dIlGDR7eD2cFI="
+                alt="">
+        </div>
+    </div>
+
+</body>
+
+</html>

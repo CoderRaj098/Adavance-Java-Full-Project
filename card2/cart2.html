@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <Style>
+        * {
+            font-family: Camphor, Helvetica, Arial, sans-serif;
+        }
+        #navbar {
+            display: flex;
+            width: 100%;
+            height: 62px;
+            font-family: Camphor, Helvetica, Arial, sans-serif;
+            border-bottom: 1px solid #D3D3D3;
+            font-size: 15px;
+            margin-bottom: 1px;
+        }
+        #navbar>div {
+            margin-top: 10px;
+        }
+        #navbar>.box {
+            width: 125px;
+            margin-right: 8px;
+        }
+        #navbar>.box>p {
+            font-size: 12px;
+            color: #787887;
+            margin: 0%;
+            margin-top: 4px;
+        }
+        #navbar>div>h4 {
+            margin: 0px;
+            margin-top: 3px;
+        }
+        #navbar>#login {
+            height: 15px;
+            display: flex;
+            font-size: 13px;
+            color: #787887;
+            border-radius: 4px;
+            border: solid 1px #D3D3D3;
+            padding: 8px;
+            padding-bottom: 10px;
+        }
+        #navbar>div>select {
+            border: none;
+            margin-top: 10px;
+            width: 90%;
+        }
+        .logo {
+            width: 10%;
+            margin: 0px 25px;
+        }
+        #login>div {
+            margin: 2px;
+        }
+        #container {
+            width: 15%;
+            height: 5%;
+            margin: auto;
+            margin-right: 200px;
+        }
+        button {
+            background-color: #14BEF0;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: sans-serif;
+            font-size: 25px;
+            margin-top: 30px;
+        }
+        img {
+            margin-right: 10px;
+            color: white;
+        }
+        #number {
+            margin-bottom: 5px;
+            margin-right: 120px;
+        }
+    </Style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar">
+        <div class="logo">
+            <img src="https://www.practo.com/nav/9.5.10/consumer/images/practo.svg" alt="practo logo" width="100%">
+        </div>
+        <div class="box">
+            <h4>Find Doctors</h4>
+            <p>Book an appointment</p>
+        </div>
+        <div class="box">
+            <h4>Video Consult</h4>
+            <p>Consult top doctors</p>
+        </div>
+        <div class="box">
+            <h4>Medicines</h4>
+            <p>Practo pharmacy</p>
+        </div>
+        <div class="box">
+            <h4>Lab Tests</h4>
+            <p>Book tests & checkup</p>
+        </div>
+        <div class="box">
+            <h4>Surgeries</h4>
+            <p>Expert surgical care</p>
+        </div>
+        <div class="box select">
+            <select name="" id="">
+                <option value="">For Providers</option>
+                <option value="">Practo Prime</option>
+                <option value="">Software for providers</option>
+                <option value="">List your practice for free</option>
+                <option value="">Corporate wellness</option>
+            </select>
+        </div>
+        <div class="box select">
+            <select name="" id="">
+                <option value="">Security & help</option>
+                <option value="">Data security</option>
+                <option value="">Help</option>
+            </select>
+        </div>
+        <div id="login">
+            <div>Login</div>
+            <div> / </div>
+            <div>Signup</div>
+        </div>
+    </div>
+    <!-- cart button -->
+    <div id="container"><button>
+            <p id="number"></p><img height="15%" width="15%" src="shopping-cart.png" alt="">VIEW CARD
+        </button>
+    </div>
+</body>
+</html>
+<script>
+    document.querySelector("number").innerHTML = "";
+</script>

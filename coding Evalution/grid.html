@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mainbox{
+            margin: auto;
+            width: 300px;
+            border: 2px solid teal;
+            display: grid;
+            grid-gap: 20px 20px;
+            padding: 10px;
+            grid-template-areas:"h h h h h h h h h h h h"
+            "a a a a a a t1 t1 t1 t1 t1 t1"
+            "a a a a a a t2 t2 t2 t2 t2 t2"
+            "m m m m m m m m m m m m"
+            "f f f f f f f f f f f f";
+        }
+        #mainbox > div {
+            background-color:grey;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .header{
+            grid-area: h;
+        }
+        .article{
+            grid-area: a;
+            height: 100px;
+        }
+        .text{
+            grid-area: t1;
+        }
+        .text1{
+            grid-area: t2;
+        }
+        .main{
+            grid-area: m;
+            height: 50px;
+        }
+        .footer{
+            grid-area: f;
+        }
+    </style>
+</head>
+<body>
+    <div id="mainbox">
+        <div class ="header">Header</div>
+        <div class="article">Article</div>
+        <div class="text">Text 1</div>
+        <div class="text1">Text 2</div>
+        <div class="main">Main</div>
+        <div class="footer">Footer</div>
+
+    </div>
+    
+</body>
+</html>

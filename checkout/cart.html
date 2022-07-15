@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var totalPrice = 0;
+    var cartproduct = JSON.parse(localStorage.getItem("cartproduct"));
+    display(cartproduct);
+
+    function display(cartproducts)
+    {
+        document.querySelector("#container").innerHTML = "";
+        cartproduct.map(function(elem,index){
+            var div = document.createElement("div");
+            div.setAttributeNS("class","card");
+
+            var img = document.createElement("img");
+            img.setAttributeNS("src",elem.prodimage);
+
+            var names = document.createElement("h3");
+            name.textcontent = elem.prodnames;
+
+            var price = document.createElement("h3");
+            price.textContent = elem.prodPrice;
+
+            totalprice = totalprice +elem.prodPrice
+            document.querySelector("#totalPrice").textcontent = totalPrice;
+
+            var del = document.createElement("button");
+            del.textContent = "Delete"
+            del.addEventListener("click",function(){
+                deleteItem(index);
+            });
+            document.querySelector(".cart").textContent = cartproduct.length+"cart"
+
+            div.append(img,name,price,del);
+            document.querySelector(#container).append(div);
+        });
+    }
+
+    document.querySelector("#coder").addEventListener("click",discount);
+
+    function discount()
+    {
+        var promo = document.querySelector("#promo").value = "";
+        if(promo== "masaii30")
+        {
+            discountprice = totalPrice - (totalPrice*30)/100;
+            document.querySelector("#totalPrice").textContent = discountprice;
+        }
+        document.querySelector("#promo").value = "";
+    }
+    document.querySelector("#checkout").addEventListener("click",function(){
+        window.Location.href = "succesfull.html";
+    });
+
+    document.querySelector("#payment").addEventListener("click",function(){
+        window.location.href ="payment.html";
+    });
+    function deletItem(index)
+    {
+        cartproduct.splice(index,1);
+        document.querySelector(".cart").textContent = cartproduct.length+"cart";
+        localStorage.setItem("cartproduct",JSON.stringify(cartproduct));
+        display(cartproduct);
+    }
+</script>
+</html>

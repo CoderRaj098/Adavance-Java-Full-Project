@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form >input {
+            margin-bottom: 20px;
+            margin-top: 20px;
+            width: 200px;
+        }
+        form > select {
+            width: 200px;
+        }
+        form > input[type="submit"]{
+            background-color: teal;
+            color: white;
+            border: 0;
+            padding: 10px 20px ;
+            
+        }
+        table,
+        td,
+        th{
+            border: 2px solid blue;
+        
+
+        }
+        table{
+            padding: 20px;
+            width: 100%;
+        }
+        th,td{
+            padding: 15px;
+            font-size: 20px;
+            padding: 10px 10px 5px 15px;
+        }
+        #filter{
+            margin-bottom: 20px;
+
+        #container {
+            display: flex: ;
+            justify-content:space-around;
+        };
+    </style>
+</head>
+<body>
+    
+    <div id="container">
+            <form id="form">
+                <select  id="category">
+                    <option value="">Category</option>
+                    <option value="refund">Refund</option>
+                    <option value="missing">Iteam Mssing</option>
+                    <option value="order">Order Status</option>
+                    <option value="delivery">Delivery</option>
+                    <option value="feedback">Feedback</option>
+                </select>
+                <textarea name="" id="textarea" cols="30" rows="10"></textarea>
+                <input type="date" name="" id="date">
+                <input type="number" name="" id="id-number">
+                <input type="submit" name="" id="submit">
+            </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>category</th>
+                    <th>Ticket</th>
+                    <th>Date</th>
+                    <th>Tick Number</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</body>
+</html>
+<script>
+    document.querySelector("#form").addEventListener("submit",forSubmit)
+    var karloarr = JSON.parse(localStorage.getItem("karlodata"))||[];
+    displayTable(karloarr)
+
+    function filtercat(){
+        var selected = document.querySelector("#filter").value
+        var filterList = karloarr.filter(function(elem){
+            return elem.category == selected
+        })
+        console.log(filterList)
+        displayTable(filterList)
+    }
+    function forsubmit(event){
+        event.preventDefault()
+        var cat = document.querySelector("cat").value
+        var ref = document.querySelector("#Refund").value
+        var item = document.querySelector("#Item Missing").value
+        var orde = document.querySelector("#order missing").value
+        var ord = document.querySelector("#Oreder Satus").value
+        var del = document.querySelector("#Delivery").value
+        var karloobj = {
+            category:form.cat.value,
+            ref:form.Refund.value,
+            feedback:form.feedback.value,
+            delivery:form.delvery.value,
+        }
+        karlo.push(karloobj);
+        displayTable(karloarr);
+        localStorage.setItem("karlodata",JSON.stringify(karloarr))
+    }
+    function displayTable(karloarr){
+        var tbody = document.querySelector("tbody");
+        tbody.textContent=""
+        console.log(karloarr)
+        karloarr.map(function(elem,index){
+            var tr = document.createElement("tr")
+            var t1 = document.createElement("td")
+            var td2 = document.createElement("td")
+            var td3 = document.createElement("td")
+            var td4 = document.createElement("td")
+            var td5 = document.createElement("button")
+            td5.addEventListener("click",function(){
+                deleteRow(index);
+            })
+            td1.textContent=elem.refund
+            td2.textContent=elem.itemmissing
+            td3.textContent=elem.orderstaus
+            td4.textContent=elem.delivery
+            td5.textContent="Delete"
+
+            tr.append(td1,td2,td3,td4,td5)
+            tbody.append(tr)
+
+        })
+    }
+</script>

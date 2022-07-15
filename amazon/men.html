@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+      #flex {
+        display: flex;
+        justify-content: space-around;
+      }
+      #flex > p:nth-child(2) {
+        text-decoration: line-through;
+      }
+      img{
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+      #cart{
+        border: 2px solid black;
+        background-color: cornflowerblue;
+        color: white;
+        font-family: sans-serif;
+      }
+      #text1{
+        font-family: sans-serif;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Men page</h1>
+    <div id="container">
+      <!-- <div id="flex" >
+            <p>$100</p>
+            <p>$150</p>
+        </div> -->
+    </div>
+  </body>
+</html>
+
+<script>
+  var mensData = JSON.parse(localStorage.getItem("mensData"))||[]
+
+  mensData.map(function (ans) {
+    var div = document.createElement("div");
+    //img,name,price,strikedoffprice
+
+    // image creation
+    var image = document.createElement("img");
+    image.setAttribute("src", ans.image_url);
+
+    // name creation
+
+    var name = document.createElement("p");
+    name.textContent = ans.name;
+    name.setAttribute("id","text1");
+
+    // price creation
+
+    var div2 = document.createElement("div");
+    div2.setAttribute("id", "flex");
+
+    var p1 = document.createElement("p");
+    p1.textContent = ans.price;
+
+    var p2 = document.createElement("p");
+    p2.textContent = ans.strikedoffprice;
+    // p2.style.textDecoration = "line-through";
+
+    div2.append(p1, p2);
+
+    // add to cart button creation
+
+    var btn = document.createElement("button");
+    btn.textContent = "Add To Cart";
+    btn.setAttribute("id","cart");
+
+    //append
+    div.append(image, name, div2, btn);
+    document.querySelector("#container").append(div);
+
+    
+  });
+  console.log(ans);
+</script>

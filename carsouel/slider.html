@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .slide-container{
+            position: relative;
+            width: 100%;
+
+        }
+        .arrow{
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            color: black;
+            /* background-color: grey; */
+            padding: 8px 19px;
+            /* border-radius: 50%; */
+            font-size: 40px;
+            /* font-weight: bold; */
+        }
+        .next{
+            right: 10px;
+        }
+        .prev{
+            left: 10px;
+        }
+        .slide{
+            display: none;
+        }
+        .img1{
+            background-color:#e4f2eb;
+        }
+        .img2{
+            background-color: #eeebf8;
+        }
+        .img3{
+            background-color: #e4f2eb;
+        }
+        .img4{
+            background-color:#e4f2eb ;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide">
+            <img class="img1" height="100%" width="100%"src="$12.jpeg" alt="">
+        </div>
+        <div class="slide">
+            <img class="img2" height="100%" width="100%" src="blank2.jpeg" alt="">
+        </div>
+        
+        <div class="slide">
+            <img class="img3" height="100%" width="100%" src="style2.jpeg" alt="">
+        </div>
+        <span class="arrow prev"onclick="controllar(-1)">&#10094;</span>
+        <span class="arrow next"onclick="controllar(1)">&#10095;</span>
+    </div>
+    <h2>nnnn</h2>
+    
+</body>
+</html>
+<script>
+    let flag = 0;
+    function controllar(x){
+        flag = flag+x;
+        slideshow(flag);
+
+    }
+    slideshow(flag);
+
+    function slideshow(num){
+        let slides = document.getElementsByClassName('slide');
+        if(num == slides.length){
+            flag = 0;
+            num = 0;
+        }
+        if(num < 0){
+            flag = slides.length-1;
+            num = slides.length-1;
+        }
+        for(let y of slides){
+            y.style.display = "none";
+        }
+        slides[num].style.display = "block";
+        
+        
+        
+    }
+</script>

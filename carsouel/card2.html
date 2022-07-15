@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    var data = [
+  {
+    name: "Bevon Capsule",
+    image:
+      "https://www.practostatic.com/practopedia-images/v3/res-150/bevon-capsule-15-s_55e001c1-5eb0-4b63-97ed-93fa24d681cf.JPG",
+    price: 114.71,
+    description: "any description",
+    qty: 1,
+  },
+  {
+    name: "Scalpe Plus Expert Anti Dandruff Shampoo 75 ml",
+    image:
+      "https://www.practostatic.com/practopedia-images/v3/res-150/scalpe-shampoo-75ml_3e057d2d-6a9e-4ac5-a1ca-f646fa183dae.JPG",
+    price: 234,
+    description: "any description",
+    qty: 2,
+  },
+  {
+    name: "Acnemoist Cream 60 g",
+    image:
+      "https://www.practostatic.com/practopedia-images/v3/res-150/acnemoist-cream-60gm_4b227521-44ca-44ec-a614-9e0e76d041c1.JPG",
+    price: 272,
+    description: "any description",
+    qty: 1,
+  },
+  {
+    name: "Keraboost Tablet",
+    image:
+      "https://www.practostatic.com/practopedia-images/v3/res-150/keraboost-tablet-10-s_98863b65-3a68-415b-a88c-9f26a6556e87.JPG",
+    price: 139,
+    description: "any description",
+    qty: 1,
+  },
+];
+console.log(data);
+var arr = JSON.parse(localStorage.getItem("data"));
+display_product(arr);
+function data(event){
+    event.preventDeafault();
+    var category = document.querySelector("#category").value;
+    var name = document.querySelector("#name").value;
+    var img = document.querySelector("#img").value;
+    var price = document.querySelector("#price").value;
+    var description = document.querySelector("#description").value;
+    var qty = document.querySelector("#qty").value;
+    console.log(category,name,img,price,description,qty);
+
+    var obj = {
+        cate:category,
+        nam:name,
+        img:img,
+        pri:price,
+        des:description,
+        qty:qty,
+    }
+    arr.push(obj);
+    localStorage.setItem("data",JSON.stringify(arr));
+    display_product(arr);
+    
+}
+data.map(function(elem){
+    var mainDiv = document.createElement("div");
+    var img = document.createElement("img");
+    var smalldiv = document.createElement("div");
+
+    var h2 = document.createElement("h1");
+    var h3 = document.createElement("h1");
+    var p = document.createElement("p");
+    var p1 = document.createElement("p");
+
+    img.setAttribute("src",elem.img);
+    h2.textContent = elem.name;
+    h3.textContent = elem.price;
+    p.textContent = elem.description;
+    p1.textContent = elem.qty;
+
+    img.style.height = "100%";
+    img.style.width = "100%";
+
+    smalldiv.append(img);
+    mainDiv.append(smalldiv,h2,h3,p,p1);
+    mainDiv.style.height = "70%"
+
+    
+
+
+
+})
+    
+</script>

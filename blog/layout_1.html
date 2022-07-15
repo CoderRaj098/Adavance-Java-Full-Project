@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Querry</title>
+    <style>
+        #main-div{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: 100px 300px 300px 300px;
+            grid-gap: 20px;
+            grid-template-areas: 
+            "nav nav nav nav"
+            "b1 b2 b3 b4";
+            padding: 100px 30px 100px;
+            height: 400px;
+        }
+        #nav{
+            background-color: yellow;
+            grid-area: nav;
+        }
+        #box-1{
+            background-color: red;
+            grid-area: b1;
+            
+        }
+        #box-2{
+            background-color: green;
+            grid-area: b2;
+        }
+        #box-3{
+            background-color: blue;
+            grid-area: b3;
+        }
+        #box-4{
+            background-color: darkgrey;
+            grid-area: b4;
+        }
+        h2{
+            margin-left: 20px;
+        }
+
+        @media only screen and (min-width:375px) and (max-width:768px){
+            #main-div{
+                grid-template-columns:repeat(2,1fr) ;
+                grid-template-rows: 100px 300px 300px 300px;
+
+                grid-template-areas: 
+               
+            "nav nav"
+            "b1 b3"
+            " b2 b4";
+            }
+            
+        }
+        @media only screen and (min-width:0px) and (max-width:375px){
+            #main-div{
+           grid-template-columns: repeat(1,1f);
+           grid-template-rows: 100px 300px 300px 300px;
+           grid-template-areas: 
+           "nav"
+           "b1"
+           "b4"
+           "b2"
+           "b3";
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="main-div">
+        <div id="nav"><h1>Navigation</h1></div>
+        <div id="box-1"><h2>Box-1</h2> </div>
+        <div id="box-2"><h2>Box-2</h2></div>
+        <div id="box-3"><h2>Box-3</h2></div>
+        <div id="box-4"><h2>Box-4</h2></div>
+    </div>
+</body>
+</html>

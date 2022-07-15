@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container1 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+      #flex1 {
+        display: flex;
+        justify-content: space-around;
+      }
+      #flex1 > p:nth-child(2) {
+        text-decoration: line-through;
+      }
+      #design{
+        border: 2px solid black;
+        background-color: cadetblue;
+        color: white;
+        border-radius: 5px;
+        font-family: sans-serif;
+        margin-left: 70px;
+      }
+      #text{
+        font-family: sans-serif;
+        font-weight: bold;
+
+      }
+      img{
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Women page</h1>
+    <div id="container1">
+      <!-- <div id="flex" >
+            <p>$100</p>
+            <p>$150</p>
+        </div> -->
+  </body>
+</html>
+
+<script>
+  var womensData = JSON.parse(localStorage.getItem("womensData"))|| []
+  
+
+womensData.map(function (data) {
+  console.log(data);
+  var div = document.createElement("div");
+  //img,name,price,strikedoffprice
+
+  // image creation
+  var image = document.createElement("img");
+  image.setAttribute("src", data.image_url);
+
+  // name creation
+
+  var name = document.createElement("p");
+  name.textContent = data.name;
+  name.setAttribute("id","text");
+
+  // price creation
+
+  var div2 = document.createElement("div");
+  div2.setAttribute("id", "flex1");
+
+  var p1 = document.createElement("p");
+  p1.textContent = data.price;
+
+  var p2 = document.createElement("p");
+  p2.textContent = data.strikedoffprice;
+  // p2.style.textDecoration = "line-through";
+
+  div2.append(p1, p2);
+
+  // add to cart button creation
+
+  var btn = document.createElement("button");
+  btn.textContent = "Add To Cart";
+  btn.setAttribute("id","design");
+
+  //append
+  div.append(image, name, div2, btn);
+  document.querySelector("#container1").append(div);
+
+  
+});
+console.log(data)
+
+</script>

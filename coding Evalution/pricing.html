@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mainbox{
+            display: grid;
+            grid-template-rows: 150px 200px 150px;
+            grid-template-columns: repeat(12,1fr);
+            grid-template-areas: "h h h h h h h h h h h h "
+            "a a a a a a a a a a a a "
+            "b b b b b b b b b b b b "
+            "f f f f f f f f f f f f ";
+            
+        }
+        
+        .heading {
+            grid-area: h;
+            border: 2px solid teal;
+            width: 100%;
+            height: 120px;
+            text-align: center;
+            
+        }
+        h1{
+            color: blue;
+        }
+        .text{
+            grid-area: a;
+            border: 2px solid teal;
+            width: 100%;
+        }
+        .text2{
+            grid-area: b;
+            border: 2px solid yellow;
+            width: 100%;
+        }
+        .flex{
+            display: flex;
+        }
+        button{
+            background-color: white;
+            color: blue;
+
+        }
+        .text3{
+            grid-area: f;
+            width: 100%;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div id="mainbox">
+        <div class="heading"><h1>Choose a plan that right your business</h1><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo provident quisquam, quaerat aliquam ipsum totam error atque nesciunt eligendi soluta illo tempora ad magnam tempore, expedita praesentium iusto nobis enim!</p></div>
+        <div class="main2 flex">
+            <div class="text"><h2>Start Plan</h2><p>Free</p><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi, vel at. Exercitationem quibusdam dolor vel perspiciatis est cupiditate accusantium at in placeat saepe voluptatem, rem officia labore modi voluptates! Dolor.</p><button>Start Now</button></div>
+            <div class="text2"><h2>Start Plan</h2><p>Free</p><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi, vel at. Exercitationem quibusdam dolor vel perspiciatis est cupiditate accusantium at in placeat saepe voluptatem, rem officia labore modi voluptates! Dolor.</p><button>Start Now</button></div>
+            <div class="text"><h2>Start Plan</h2><p>Free</p><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi, vel at. Exercitationem quibusdam dolor vel perspiciatis est cupiditate accusantium at in placeat saepe voluptatem, rem officia labore modi voluptates! Dolor.</p><button>Start Now</button></div>
+            
+        </div>
+        
+    
+    
+</body>
+</html>
