@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        #container{
+            display: grid;
+            width: 260px;
+            grid-template-rows: repeat(4,100px);
+            grid-template-columns: repeat(3,100px);
+            grid-gap: 10px;
+            margin: auto;
+            justify-content: space-around;
+
+        }
+        #container > div {
+            height: 60%;
+            width: 100%;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 30px;
+            cursor: pointer;
+            
+            
+        }
+        .mainbox{
+            background-color: black;
+            color: white;
+            font-size: 20px;
+            border-radius: 10px;
+        }
+        .red{
+            background-color: red;
+            border-radius: 10px;
+            color: white;
+            font-size: 20px;
+        }
+        #main{
+            display: grid;
+            width: 25%;
+            height: 30%;
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 30px 0px;
+            margin: auto;
+
+            
+        }
+    
+
+    </style>
+</head>
+<body>
+    
+<div id="main"></div>    
+    <div id="container">
+        <div class="mainbox"onclick="press(1)">1</div>
+        <div class="mainbox"onclick="press(2)">2</div>
+        <div class="mainbox"onclick="press(3)">3</div>
+        <div class="mainbox"onclick="press(4)">4</div>
+        <div class="mainbox"onclick="press(5)">5</div>
+        <div class="mainbox"onclick="press(6)">6</div>
+        <div class="mainbox"onclick="press(7)">7</div>
+        <div class="mainbox"onclick="press(8)">8</div>
+        <div class="mainbox"onclick="press(9)">9</div>
+        <div class="mainbox"onclick="press(0)">0</div>
+        <div class="red"onclick="press('clear')">clear</div>
+        
+
+    </div>
+    
+</body>
+</html>
+<script>
+    function press (N){
+     var input_box = document.getElementById("main");
+     if(N == "clear"){
+         input_box.innerHTML = "";
+         return;
+     }
+     var value = input_box.innerHTML + N;
+     input_box.innerHTML = value;
+    }
+</script>

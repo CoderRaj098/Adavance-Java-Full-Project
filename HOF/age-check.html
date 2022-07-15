@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input  type="number" placeholder="Enter your Age" />
+    <button onclick ="agecheck()">Submit</button>
+    <p>Show your output here</p>
+    
+</body>
+<script>
+    function agecheck() {
+        var age = document.querySelector('input').value;
+        if (age > 18){
+            document.querySelector("p").textContent = "You can drive in india!";
+            console.log('You can drive in India!')
+        }
+        else if(age < 18){
+            document.querySelector("p").textContent = "You can't drive in India"
+            console.log(" You can't drive in India")
+        }
+        else{
+            document.querySelector("p").textContent = "You can drive in india!"
+            console.log("You can drive in India!")
+        }
+        
+    }
+
+</script>
+</html>

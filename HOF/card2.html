@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            display: flex;
+            justify-content: space-around;
+        }
+        p{
+            display: inline-block;
+            margin-left: 10px;
+            font-weight: bold;
+            text-decoration: line-through;
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="container">
+    
+    </div>
+    
+</body>
+</html>
+<script>
+    var data = [
+    {
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$25.00",
+        strikedOffPrice:"$95.00"
+    },{
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi2.jpg.pagespeed.ic.uBrpABaJqp.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$35.00",
+        strikedOffPrice:"$100.00"
+    },{
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi3.jpg.pagespeed.ic.iO_cFEPy2K.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$35.00",
+        strikedOffPrice:"$100.00"
+    },
+    {
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi4.jpg.pagespeed.ic.kmiQW8I5wx.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$35.00",
+        strikedOffPrice:"$100.00"
+    }
+]
+    var container = document.querySelector("#container");
+    data.map(function(elem){
+        var div = document.createElement("div");
+        var img = document.createElement("img");
+        var h4 = document.createElement("h4");
+        var p1 = document.createElement("p");
+        var p2 = document.createElement("p");
+        img.setAttribute("src",elem.imgUrl);
+        h4.textContent = elem.name;
+        p1.textContent = elem.price;
+        p2.textContent = elem.strikedOffPrice;
+        div.append(img,h4,p1,p2);
+        var body = document.querySelector("body");
+        body.append(container);
+        container.append(div);
+
+
+    })
+</script>
